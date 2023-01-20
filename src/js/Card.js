@@ -43,5 +43,6 @@ export default class Card extends EventEmitter {
         price: this._price,
       });
     });
+    
   }
 }

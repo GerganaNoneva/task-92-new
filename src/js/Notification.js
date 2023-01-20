@@ -1,3 +1,5 @@
+import { formatCurrency } from "./utils";
+
 export default class Notification {
   static get types() {
     return {
@@ -12,14 +14,27 @@ export default class Notification {
     this.container.classList.add("notification-container");
   }
 
-  render() {
+  render(type, price) {
     const template = `
-<div class="notification type-pepperoni">
+<div class="notification type-${type}">
   <button class="delete"></button>
-  🍕 <span class="type">pepperoni</span> (<span class="price">0,00</span>) has been added to your order.
+  🍕 <span class="type">${type}</span> (<span class="price">${formatCurrency(price)}</span>) has been added to your order.
 </div>
     `;
-
     this.container.innerHTML = template;
+    document.getElementsByClassName('notifications')[0].appendChild(this.container);
+    let notificationDiv=document.querySelectorAll('.notification.type-hawaiian');
+   for(const pizza of notificationDiv) {
+    pizza.classList.add('is-danger');
+    console.log(pizza)
+    }
+    let closeBtns= document.getElementsByClassName('delete');
+    for(const btn of closeBtns) {
+      btn.addEventListener('click',()=>{
+        btn.parentElement.remove();
+      })
+    }
+   
+    
   }
 }
