@@ -33,7 +33,9 @@ export default class Notification {
         btn.parentElement.remove();
       })
     }
-   
-    
+  }
+
+  empty() {
+    document.querySelector('notifications').innerHTML=''
   }
 }
