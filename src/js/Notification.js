@@ -27,7 +27,8 @@ export default class Notification {
 </div>
     `;
     this.container.innerHTML = template;
-    document.getElementsByClassName('notifications')[0].appendChild(this.container);
+    this.notificationDiv.appendChild(this.container);
+   // document.getElementsByClassName('notifications')[0].appendChild(this.container);
     let closeBtns= document.getElementsByClassName('delete');
     for(const btn of closeBtns) {
       btn.addEventListener('click',()=>{
