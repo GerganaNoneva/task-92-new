@@ -17,13 +17,14 @@ export default class Notification {
     this.notificationDiv = document.querySelector('.notifications')
   }
 
-  render(type, price) {
+  render({_type, _price}) {
+  //  console.log(_price)
     const template = `
-<div class="notification type-${type} ${classNames({
-  "is-danger": type === 'hawaiian',
+<div class="notification type-${_type} ${classNames({
+  "is-danger": _type === 'hawaiian',
 })}">
   <button class="delete"></button>
-  🍕 <span class="type">${type}</span> (<span class="price">${formatCurrency(price)}</span>) has been added to your order.
+  🍕 <span class="type">${_type}</span> (<span class="price">${formatCurrency(_price)}</span>) has been added to your order.
 </div>
     `;
     this.container.innerHTML = template;
