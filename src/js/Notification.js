@@ -17,19 +17,17 @@ export default class Notification {
     this.notificationDiv = document.querySelector('.notifications')
   }
 
-  render({_type, _price}) {
-  //  console.log(_price)
+  render({type, price}) {
     const template = `
-<div class="notification type-${_type} ${classNames({
-  "is-danger": _type === 'hawaiian',
+<div class="notification type-${type} ${classNames({
+  "is-danger": type === 'hawaiian',
 })}">
   <button class="delete"></button>
-  🍕 <span class="type">${_type}</span> (<span class="price">${formatCurrency(_price)}</span>) has been added to your order.
+  🍕 <span class="type">${type}</span> (<span class="price">${formatCurrency(price)}</span>) has been added to your order.
 </div>
     `;
     this.container.innerHTML = template;
     this.notificationDiv.appendChild(this.container);
-   // document.getElementsByClassName('notifications')[0].appendChild(this.container);
     let closeBtns= document.getElementsByClassName('delete');
     for(const btn of closeBtns) {
       btn.addEventListener('click',()=>{

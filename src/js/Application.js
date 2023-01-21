@@ -31,17 +31,10 @@ export default class Application extends EventEmitter {
         ...pizza
       });
       card.render();
-      card.container.addEventListener('click', () => {
-       let {_type, _price} = card;
-       // let notification = new Notification({_type, _price});
-       console.log(_type, _price)
-       let notification = new Notification({_type, _price})
-       // console.log({_type, _price})
-        notification.render({_type,_price});
+      card.on(Card.events.ADD_TO_CART,(obj)=>{
+        new Notification().render(obj)})
+        document.querySelector(".main").appendChild(card.container);
       })
-      document.querySelector(".main").appendChild(card.container);
-
-    });
     this.emit(Application.events.READY);
   }
 }
