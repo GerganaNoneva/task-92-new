@@ -28,12 +28,21 @@ export default class Notification {
     `;
     this.container.innerHTML = template;
     this.notificationDiv.appendChild(this.container);
+    let btn = this.container.querySelector('button')
+    btn.addEventListener('click',()=>{
+      btn.parentElement.remove();
+    })
+ //   console.log(btn)
+   /* document.querySelector('button').addEventListener('click',()=>{
+      this.container.remove();
+    })*/
+    /*
     let closeBtns= document.getElementsByClassName('delete');
     for(const btn of closeBtns) {
       btn.addEventListener('click',()=>{
         btn.parentElement.remove();
       })
-    }
+    }*/
   }
 
   empty() {
