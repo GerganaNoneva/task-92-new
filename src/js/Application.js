@@ -32,10 +32,12 @@ export default class Application extends EventEmitter {
       });
       card.render();
       card.container.addEventListener('click', () => {
-        let {_type, _price} = card;
-        let notification = new Notification({_type, _price});
+       let {_type, _price} = card;
+       // let notification = new Notification({_type, _price});
+       console.log(_type, _price)
+       let notification = new Notification({_type, _price})
        // console.log({_type, _price})
-        notification.render({_type, _price});
+        notification.render({_type,_price});
       })
       document.querySelector(".main").appendChild(card.container);
 
