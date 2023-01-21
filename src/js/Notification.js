@@ -14,6 +14,7 @@ export default class Notification {
   constructor() {
     this.container = document.createElement("div");
     this.container.classList.add("notification-container");
+    this.notificationDiv = document.querySelector('.notifications')
   }
 
   render(type, price) {
